@@ -12,7 +12,7 @@
     - display(): to display the stack - what is the 1st item in your stack?
     - Remove McCoy from your stack and display the stack
 
-#### not finished
+#### not finished - need to revisit
 3. Check for palindromes using a stack
     - A palindrome is a word, phrase, or number that is spelled the same forward and backward. For example,
     - “dad” is a palindrome; “A man, a plan, a canal: Panama” is a palindrome if you take out the spaces and
@@ -34,3 +34,9 @@
     - Implement a isEmpty() function outside the Queue class that allows you to check if the queue is empty or not
     - Implement a display() function outside of the Queue class that lets you display what's in the queue.
     - Remove Spock from the queue and display the resulting queue.
+
+#### Next
+7. Create a queue class using Doubly linked List
+8. Queue implementation using a stack
+9. Square dance pairing
+10. The Ophidian Bank

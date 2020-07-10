@@ -84,48 +84,26 @@ function is_palindrome(s) {
 // console.log(is_palindrome("Tauhida"));
 
 //4. Matching parentheses
-//working with simple expression - but not numbers
 function findParenMatch(string){
-    //push each char to new stack
     const newStack = new Stack();
     for(i=0; i<string.length; i++){
         newStack.push(string.charAt(i))
     }
 
-    //loop through stack
-    // let node = newStack.top
-    // while(node !== null){
-    //     if(node.data == ')' && '(' ){
-    //         return true
-    //     } else if(node.data == '('){
-    //         return false;
-    //     } else if(node.data == ')'){
-    //         return false;
-    //     } 
-    //     node = node.next
-    // }
-
     for(i=0; i<string.length; i++){
         let letter = newStack.pop()
-        //console.log(string.charAt(i))
         if(letter == ')' && string.charAt(i) == '('){
             continue;
         }
         if(letter === string.charAt(i)){
-            return false;
+            return 'You are missing a parentheses';
         }
     }
-
-    // while(node !== null){
-    //     let topItem = node
-    //     console.log(topItem)
-    //     newStack.pop()
-    // }
 
     return true;
 }
 
-console.log(findParenMatch('(())'))
+//console.log(findParenMatch('()()'))
 
 function newStack(){
     const starTrek = new Stack();
@@ -148,3 +126,4 @@ function newStack(){
 
 
 //console.log(newStack())
+

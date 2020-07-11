@@ -24,6 +24,9 @@
 
 5. Sort Stack
 
+7. Create a queue class using Doubly linked List
+    - Use the items listed in #6 and enqueue them to your queue.
+    - Check to see who is first one on the Queue?
 #### Finished
 6. Create a queue using a singly linked list
     - Walk through the Queue class in the curriculum and understand it well. Then write a Queue class
@@ -36,7 +39,7 @@
     - Remove Spock from the queue and display the resulting queue.
 
 #### Next
-7. Create a queue class using Doubly linked List
+
 8. Queue implementation using a stack
 9. Square dance pairing
 10. The Ophidian Bank

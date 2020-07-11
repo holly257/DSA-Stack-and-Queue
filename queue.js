@@ -41,6 +41,45 @@ class Queue {
     }
 }
 
+class DoublyLinkedQueue {
+    constructor() {
+        this.first = null;
+        this.last = null;
+        this.prev = null;
+    }
+
+    _enqueue(data) {
+        const node = new _Node_(data);
+
+        if (this.first === null) {
+            this.first = node;
+            this.prev = null
+        }
+
+        if (this.last) {
+            this.last.next = node;
+        }
+
+        let oldLastNode = this.last
+        this.last = node;
+        this.last.prev = oldLastNode;
+    }
+    //change
+    _dequeue() {
+        if (this.first === null) {
+            return;
+        }
+        let node = this.first;
+        this.first = this.first.next;
+        this.first.prev = null;
+
+        if (node === this.last) {
+            this.last = null;
+        }
+        return node.value;
+    }
+}
+
 
 function _peek(stack){
     return stack.first;
@@ -84,7 +123,32 @@ function newQueue() {
     let _displayStack = _display(starTrekQ);
     //let palindrome = is_palindrome(starTrekQ);
 
-    return _displayStack;
+    return starTrekQ;
 }
 
 console.log(newQueue());
+
+
+function newDoublyQueue() {
+    
+
+    const starTrekDoublyQ = new DoublyLinkedQueue();
+
+    starTrekDoublyQ._enqueue('Kirk')
+    starTrekDoublyQ._enqueue('Spock')
+    starTrekDoublyQ._enqueue('Uhura')
+    starTrekDoublyQ._enqueue('Sulu')
+    starTrekDoublyQ._enqueue('Checkov')
+
+    //let _peek_Top = _peek(starTrekDoublyQ);
+    // let _checkEmpty = _isEmpty(starTrekDoublyQ);
+
+    starTrekDoublyQ._dequeue();
+    // starTrekDoublyQ._dequeue();
+    // let _displayStack = _display(starTrekDoublyQ);
+    //let palindrome = is_palindrome(starTrekDoublyQ);
+
+    return starTrekDoublyQ;
+}
+
+console.log(newDoublyQueue());

@@ -64,7 +64,7 @@ class DoublyLinkedQueue {
         this.last = node;
         this.last.prev = oldLastNode;
     }
-    //change
+    
     _dequeue() {
         if (this.first === null) {
             return;
@@ -147,4 +147,4 @@ function newDoublyQueue() {
     return starTrekDoublyQ;
 }
 
-console.log(newDoublyQueue());
+//console.log(newDoublyQueue());

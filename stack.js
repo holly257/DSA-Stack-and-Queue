@@ -1,4 +1,3 @@
-
 class _Node {
     constructor(data, next) {
         this.data = data;
@@ -21,110 +20,147 @@ class Stack {
         this.top = node;
     }
 
-    pop(){
+    pop() {
         const node = this.top;
         this.top = node.next;
         return node.data;
     }
 }
 
-function peek(stack){
+function peek(stack) {
     return stack.top;
 }
 
-function isEmpty(stack){
-    if(stack.top === null){
-        return 'empty'
-    }
-    else return 'not empty'
+function isEmpty(stack) {
+    if (stack.top === null) {
+        return true;
+    } else return false;
 }
 
-function display(stack){
-
+function display(stack) {
     let stackArr = [];
-    let node = stack.top
+    let node = stack.top;
 
-    while(node !== null){
-        if(node !== null){
-            stackArr.push(node.data)
+    while (node !== null) {
+        if (node !== null) {
+            stackArr.push(node.data);
         }
-        node = node.next
+        node = node.next;
     }
     return stackArr;
 }
 
+
+//3. Check for palindromes using a stack
 function is_palindrome(s) {
-    let word = s.toLowerCase().replace(/[^a-zA-Z0-9]/g, "");
-    
-    let reversedStr = ''
-    for(i=word.length-1; i>=0; i--){
-        let eachChar = word.charAt(i)
-        reversedStr = ''.concat(reversedStr, eachChar)
+    const stack = new Stack();
+    let word = s.toLowerCase().replace(/[^a-zA-Z0-9]/g, '');
+    if (word.length === 1) {
+        return true;
+    }
+    let middle = Math.floor(word.length / 2);
+
+    for (let i = 0; i < middle; i++) {
+        stack.push(word.charAt(i));
     }
 
-    if(word == reversedStr){
-        return true
-    } else return false
+    if (word.length % 2 === 0) {
+        for (let i = middle; i < word.length; i++) {
+            let eachChar = stack.pop();
+            if (eachChar === word.charAt(i)) {
+                return true;
+            } else return false;
+        }
+    } else {
+        for (let i = middle + 1; i < word.length; i++) {
+            let eachChar = stack.pop();
+            if (eachChar === word.charAt(i)) {
+                return true;
+            } else return false;
+        }
+    }
 }
-//this logic might help re-write ^ using stacks
-// for(i=0; i<string.length; i++){
-//     let letter = newStack.pop()
-//     if(letter == ')' && string.charAt(i) == '('){
-//         continue;
-//     }
-//     if(letter === string.charAt(i)){
-//         return false;
-//     }
-// }
+console.log(is_palindrome('dad'));
+console.log(is_palindrome('A man, a plan, a canal: Panama'));
+console.log(is_palindrome('1001'));
+console.log(is_palindrome('Tauhida'));
 
-
-// console.log(is_palindrome("dad"));
-// console.log(is_palindrome("A man, a plan, a canal: Panama"));
-// console.log(is_palindrome("1001"));
-// console.log(is_palindrome("Tauhida"));
 
 //4. Matching parentheses
-function findParenMatch(string){
-    let havePair = true;
+function findParenMatch(string) {
     const newStack = new Stack();
-    for(i=0; i<string.length; i++){
-        newStack.push(string.charAt(i))
+    for (i = 0; i < string.length; i++) {
+        if (string.charAt(i) === '(' || string.charAt(i) === '[' || string.charAt(i) === '{') {
+            newStack.push(i);
+        } else {
+            if (string.charAt(i) === ')') {
+                if (isEmpty(newStack)) {
+                    return 'You are missing ( parenthesis at ' + i;
+                } else {
+                    let item = string[newStack.pop()];
+                    if (item !== '(') {
+                        return 'You are missing ( parenthesis at ' + i;
+                    }
+                }
+            }
+            if (string.charAt(i) === ']') {
+                if (isEmpty(newStack)) {
+                    return 'You are missing [ parenthesis at ' + i;
+                } else {
+                    let item = string[newStack.pop()];
+                    if (item !== '[') {
+                        return 'You are missing [ parenthesis at ' + i;
+                    }
+                }
+            }
+            if (string.charAt(i) === '}') {
+                if (isEmpty(newStack)) {
+                    return 'You are missing { parenthesis at ' + i;
+                } else {
+                    let item = string[newStack.pop()];
+                    if (item !== '{') {
+                        return 'You are missing { parenthesis at ' + i;
+                    }
+                }
+            }
+        }
     }
 
-    for(i=0; i<string.length; i++){
-        let letter = newStack.pop()
-        if(letter === ')' || letter === '('){
-            havePair = !havePair;
-            continue;
-        } 
+    if (isEmpty(newStack)) {
+        return true;
+    } else {
+        return 'You are missing ) at ' + newStack.pop();
     }
-
-    if(havePair === false){
-        return 'You are missing a parentheses';
-    } else return havePair;
 }
+//console.log(findParenMatch('()(){}}[{]['))
 
-console.log(findParenMatch('()()'))
 
-function newStack(){
+//5. Sort stack
+function smallestFirst(stack) {
+    return stack;
+
+    //use .pop to take off items
+}
+//console.log(smallestFirst(newStack()))
+
+
+function newStack() {
     const starTrek = new Stack();
 
-    starTrek.push('Kirk')
-    starTrek.push('Spock')
-    starTrek.push('McCoy')
-    starTrek.push('Scotty')
+    starTrek.push('Kirk');
+    starTrek.push('Spock');
+    starTrek.push('McCoy');
+    starTrek.push('Scotty');
 
     let peekTop = peek(starTrek);
     let checkEmpty = isEmpty(starTrek);
 
-    starTrek.pop();
-    starTrek.pop();
+    //starTrek.pop();
+    //starTrek.pop();
     let displayStack = display(starTrek);
     //let palindrome = is_palindrome(starTrek);
 
-    return displayStack;
+    return starTrek;
 }
 
-
 //console.log(newStack())
-

@@ -121,17 +121,14 @@ function newQueue() {
     starTrekQ.dequeue();
     starTrekQ.dequeue();
     let _displayStack = _display(starTrekQ);
-    //let palindrome = is_palindrome(starTrekQ);
 
     return starTrekQ;
 }
 
-console.log(newQueue());
+//console.log(newQueue());
 
 
 function newDoublyQueue() {
-    
-
     const starTrekDoublyQ = new DoublyLinkedQueue();
 
     starTrekDoublyQ._enqueue('Kirk')
@@ -140,14 +137,13 @@ function newDoublyQueue() {
     starTrekDoublyQ._enqueue('Sulu')
     starTrekDoublyQ._enqueue('Checkov')
 
-    //let _peek_Top = _peek(starTrekDoublyQ);
-    // let _checkEmpty = _isEmpty(starTrekDoublyQ);
+    let _peek_Top = _peek(starTrekDoublyQ);
+    let _checkEmpty = _isEmpty(starTrekDoublyQ);
 
-    starTrekDoublyQ._dequeue();
-    // starTrekDoublyQ._dequeue();
-    // let _displayStack = _display(starTrekDoublyQ);
-    //let palindrome = is_palindrome(starTrekDoublyQ);
-
+    //starTrekDoublyQ._dequeue();
+    //starTrekDoublyQ._dequeue();
+    let _displayStack = _display(starTrekDoublyQ);
+    //return _displayStack
     return starTrekDoublyQ;
 }
 

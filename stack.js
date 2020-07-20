@@ -85,6 +85,7 @@ function is_palindrome(s) {
 
 //4. Matching parentheses
 function findParenMatch(string){
+    let havePair = true;
     const newStack = new Stack();
     for(i=0; i<string.length; i++){
         newStack.push(string.charAt(i))
@@ -92,18 +93,18 @@ function findParenMatch(string){
 
     for(i=0; i<string.length; i++){
         let letter = newStack.pop()
-        if(letter == ')' && string.charAt(i) == '('){
+        if(letter === ')' || letter === '('){
+            havePair = !havePair;
             continue;
-        }
-        if(letter === string.charAt(i)){
-            return 'You are missing a parentheses';
-        }
+        } 
     }
 
-    return true;
+    if(havePair === false){
+        return 'You are missing a parentheses';
+    } else return havePair;
 }
 
-//console.log(findParenMatch('()()'))
+console.log(findParenMatch('()()'))
 
 function newStack(){
     const starTrek = new Stack();

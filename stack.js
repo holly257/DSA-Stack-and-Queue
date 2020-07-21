@@ -80,46 +80,80 @@ function is_palindrome(s) {
         }
     }
 }
-console.log(is_palindrome('dad'));
-console.log(is_palindrome('A man, a plan, a canal: Panama'));
-console.log(is_palindrome('1001'));
-console.log(is_palindrome('Tauhida'));
+// console.log(is_palindrome('dad'));
+// console.log(is_palindrome('A man, a plan, a canal: Panama'));
+// console.log(is_palindrome('1001'));
+// console.log(is_palindrome('Tauhida'));
 
 
 //4. Matching parentheses
 function findParenMatch(string) {
     const newStack = new Stack();
+    let error = ''
     for (i = 0; i < string.length; i++) {
-        if (string.charAt(i) === '(' || string.charAt(i) === '[' || string.charAt(i) === '{') {
+        if (string.charAt(i) === '(' || string.charAt(i) === '[' || string.charAt(i) === '{' || string.charAt(i) === '"' || string.charAt(i) === `'`) {
             newStack.push(i);
         } else {
+        //     //console.log(newStack)
+        //     if (isEmpty(newStack)) {
+        //         error = 'You are missing ' + 'thing' + ' at ' + i;
+        //         return error;
+        //     }
+        //     let required = [')', ']', '}']
+        //     let newItem = string[newStack.pop()]
+        //     console.log(string.charAt(i), newItem)
+        //             if (!required.includes(string.charAt(i))) {               
+        //                 error =  'You are missing ' + newItem + ' at ' + i;
+        //                 return error;
+        //             }
+                
+            
+        // //return error
+            if (string.charAt(i) === '"') {
+                if (isEmpty(newStack)) {
+                    error = 'You are missing " at ' + i;
+                    return error;
+                } else {
+                    let item = string[newStack.pop()];
+                    if (item !== '"') {
+                        error = 'You are missing " at ' + i;
+                        return error;
+                    }
+                }
+            }
             if (string.charAt(i) === ')') {
                 if (isEmpty(newStack)) {
-                    return 'You are missing ( parenthesis at ' + i;
+                    error = 'You are missing ( at ' + i;
+                    return error;
                 } else {
                     let item = string[newStack.pop()];
                     if (item !== '(') {
-                        return 'You are missing ( parenthesis at ' + i;
+                        error =  'You are missing ( at ' + i;
+                        return error;
                     }
                 }
             }
             if (string.charAt(i) === ']') {
                 if (isEmpty(newStack)) {
-                    return 'You are missing [ parenthesis at ' + i;
+                    error = 'You are missing [ at ' + i;
+                    return error;
                 } else {
                     let item = string[newStack.pop()];
                     if (item !== '[') {
-                        return 'You are missing [ parenthesis at ' + i;
+                        error = 'You are missing [ at ' + i;
+                        return error;
                     }
                 }
             }
             if (string.charAt(i) === '}') {
                 if (isEmpty(newStack)) {
-                    return 'You are missing { parenthesis at ' + i;
+                    error = 'You are missing { at ' + i;
+                    return error;
                 } else {
                     let item = string[newStack.pop()];
                     if (item !== '{') {
-                        return 'You are missing { parenthesis at ' + i;
+                        error =  'You are missing { at ' + i;
+                        return error;
                     }
                 }
             }
@@ -128,11 +162,50 @@ function findParenMatch(string) {
 
     if (isEmpty(newStack)) {
         return true;
-    } else {
-        return 'You are missing ) at ' + newStack.pop();
+    }  else if(!isEmpty(newStack)) {
+        let index = newStack.pop()
+        let char = string.charAt(index)
+
+        if(char === '"' || char === `'`){
+            countQuotes(char, newStack)
+            // let countSingle = 0
+            // let countDouble = 0
+
+            // let eachQuote = newStack.pop()
+            // if(eachQuote === '"') {
+            //     countDouble = countDouble + 1
+            // } else countSingle = countSingle + 1
+            // console.log(countSingle, countDouble)
+        } else {
+        let required = ['(', '[', '{']
+        required.forEach(item => {
+            if(char === item) {                
+                error =  'You are missing ' + item + ' at ' + (index+1);
+                return error;
+            }
+        })
+        return error}
+    } 
+    else {
+        return error
     }
 }
-//console.log(findParenMatch('()(){}}[{]['))
+
+function countQuotes(char, newStack){
+    let countSingle = 0
+    let countDouble = 0
+
+    let eachQuote = newStack.pop()
+    if(eachQuote === '"') {
+        countDouble = countDouble + 1
+    } else if(eachQuote === `'`){
+        countSingle = countSingle + 1
+    } else return countSingle, countDouble, newStack
+    console.log(countSingle, countDouble)
+}
+
+//counting quotes not working
+//console.log(findParenMatch(`{}()""()(){}`))
 
 
 //5. Sort stack

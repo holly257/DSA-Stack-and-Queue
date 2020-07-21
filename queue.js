@@ -148,3 +148,64 @@ function newDoublyQueue() {
 }
 
 //console.log(newDoublyQueue());
+
+
+//8. Queue implementation using two stacks
+class _Stack {
+    constructor() {
+        this.top = null;
+    }
+
+    push(data) {
+        if (this.top === null) {
+            this.top = new _Node(data, null);
+            return this.top;
+        }
+
+        const node = new _Node(data, this.top);
+        this.top = node;
+    }
+
+    pop() {
+        const node = this.top;
+        this.top = node.next;
+        return node.data;
+    }
+}
+
+function returnItemLikeQueue(stack){
+    const helperStack = new _Stack()
+
+    //until we get to first item in, move everything to a different stack
+    while(stack.top.next !== null){
+        let eachItem = stack.pop()
+        helperStack.push(eachItem)
+    }
+
+    //then take the first item off, and return 
+    let firstIn = stack.pop()
+
+    //then put everything back in original order, so when more items are added the order stays FIFO
+    while(helperStack.top !== null) {
+        let eachReturningItem = helperStack.pop()
+        stack.push(eachReturningItem)
+    }
+
+    //return FIFO
+    return firstIn
+}
+
+function queueUsingStacks() {
+    const myStack1 = new _Stack()
+
+    myStack1.push('1 Kirk');
+    myStack1.push('2 Spock');
+    myStack1.push('3 McCoy');
+    myStack1.push('4 Scotty');
+
+    let firstItem = returnItemLikeQueue(myStack1)
+    console.log(myStack1)
+    return firstItem;
+}
+
+console.log(queueUsingStacks())

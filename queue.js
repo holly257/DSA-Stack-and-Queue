@@ -204,8 +204,39 @@ function queueUsingStacks() {
     myStack1.push('4 Scotty');
 
     let firstItem = returnItemLikeQueue(myStack1)
-    console.log(myStack1)
     return firstItem;
 }
 
-console.log(queueUsingStacks())
+//console.log(queueUsingStacks())
+
+
+//9. Square dance pairing
+function pairOff(females, males) {
+    if(females.first !== null && males.first !== null){
+        let f_pair = females.dequeue()
+        let m_pair = males.dequeue()
+        let pair = [f_pair, m_pair]
+        return pair
+    } else return 'waiting on another to pair with'
+}
+
+function squareDancingPairs(){
+    const m_queue = new Queue()
+    const f_queue = new Queue()
+
+    f_queue.enqueue('Jane')
+    m_queue.enqueue('Frank')
+    m_queue.enqueue('John')
+    m_queue.enqueue('Sherlock')
+    f_queue.enqueue('Madonna')
+    m_queue.enqueue('David')
+    m_queue.enqueue('Christopher')
+    f_queue.enqueue('Beyonce')
+
+    
+    let pairs = pairOff(f_queue, m_queue)
+    let otherPair = pairOff(f_queue, m_queue)
+    return pairs
+}
+
+console.log(squareDancingPairs())

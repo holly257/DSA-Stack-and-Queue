@@ -37,6 +37,9 @@
     - There are many ways to implement a queue. You have learned using singly linked list, and doubly linked list. 
     - Keeping the concept of a queue in mind, implement a queue using 2 stacks and no other data structure. (You are not allowed to use a doubly linked list or array. 
     - Use your stack implementation with a linked list from above to solve this problem.)
+9. Square dance pairing
+    - As people come to the dance floor, they should be paired off as quickly as possible: man with woman, man with woman, all the way down the line. If several men arrive in a row, they should be paired in the order they came, and likewise if several women do.
+    - Maintain a queue of "spares" (men for whom you have no women yet, or vice versa), and pair them as appropriate.
 #### not finished - need to revisit
 
 4. Matching parentheses in an expression
@@ -49,5 +52,5 @@
 #### Next
 
 
-9. Square dance pairing
+
 10. The Ophidian Bank

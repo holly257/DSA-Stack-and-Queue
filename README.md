@@ -1,10 +1,9 @@
-##
+## Stacks and Queues Assignment
 
 1. Create a stack class
     - Walk through the Stack class in the curriculum and understand it well. Then write a Stack
     - class with its core functions (push, pop) from scratch.
     - Create a stack called starTrek and add Kirk, Spock, McCoy, and Scotty to the stack.
-
 2. Useful methods for a stack
     - Using the Stack class above, implement the following helper functions outside of the class:
     - peek(): allows you to look at the top of the stack without removing it
@@ -16,12 +15,12 @@
     - “dad” is a palindrome; “A man, a plan, a canal: Panama” is a palindrome if you take out the spaces and
     - ignore the punctuation; and 1,001 is a numeric palindrome. We can use a stack to determine whether or
     - not a given string is a palindrome.
-    - Write an algorithm that uses a stack to determine whether a given input is palindrome or not. 
+    - Write an algorithm that uses a stack to determine whether a given input is palindrome or not.
 4. Matching parentheses in an expression
-    -  stack can be used to ensure that an arithmetic expression has balanced parentheses. Write a function that takes an arithmetic expression as an argument and returns true or false based on matching parenthesis. As a bonus provide a meaningful error message to the user as to what's missing. For example, you are missing a ( or missing a ")".
+    - stack can be used to ensure that an arithmetic expression has balanced parentheses. Write a function that takes an arithmetic expression as an argument and returns true or false based on matching parenthesis. As a bonus provide a meaningful error message to the user as to what's missing. For example, you are missing a ( or missing a ")".
     - For version 1, the parentheses you need to consider are ( and ). Finding a close parenthesis without an open parenthesis is an error (report the location of the close); reaching the end of the string while still "holding" an open parenthesis is also an error (report the location of the open).
     - Extension exercise: Recognize 3 pairs of brackets: (), [], and {}. These must be correctly nested; "([)]" is incorrect, and should report an error at the ), stating that you were expecting a ] but found a ). If this is starting to look and sound very familiar, congratulations - you're beginning to write a simple language parser!
-6. Create a queue using a singly linked list
+5. Create a queue using a singly linked list
     - Walk through the Queue class in the curriculum and understand it well. Then write a Queue class
     - with its core functions (enqueue(), dequeue()) from scratch.
     - Create a queue called starTrekQ and add Kirk, Spock, Uhura, Sulu, and Checkov to the queue.
@@ -30,27 +29,26 @@
     - Implement a isEmpty() function outside the Queue class that allows you to check if the queue is empty or not
     - Implement a display() function outside of the Queue class that lets you display what's in the queue.
     - Remove Spock from the queue and display the resulting queue.
-7. Create a queue class using Doubly linked List
+6. Create a queue class using Doubly linked List
     - Use the items listed in #6 and enqueue them to your queue.
     - Check to see who is first one on the Queue?
-8. Queue implementation using a stack
-    - There are many ways to implement a queue. You have learned using singly linked list, and doubly linked list. 
-    - Keeping the concept of a queue in mind, implement a queue using 2 stacks and no other data structure. (You are not allowed to use a doubly linked list or array. 
+7. Queue implementation using a stack
+    - There are many ways to implement a queue. You have learned using singly linked list, and doubly linked list.
+    - Keeping the concept of a queue in mind, implement a queue using 2 stacks and no other data structure. (You are not allowed to use a doubly linked list or array.
     - Use your stack implementation with a linked list from above to solve this problem.)
-9. Square dance pairing
+8. Square dance pairing
     - As people come to the dance floor, they should be paired off as quickly as possible: man with woman, man with woman, all the way down the line. If several men arrive in a row, they should be paired in the order they came, and likewise if several women do.
     - Maintain a queue of "spares" (men for whom you have no women yet, or vice versa), and pair them as appropriate.
+
 #### not finished - need to revisit
 
 4. Matching parentheses in an expression
+
     - Extension extension exercise: Also recognize 2 types of quote character: "" and ''. Inside quotes, brackets aren't counted at all - in fact, nothing is counted until you reach the corresponding close quote.
 
 5. Sort Stack
     - Write a program to sort a stack such that the smallest items are on the top (in ascending order). You can use an additional stack, but you may not use any other data structure (such as an array, or linked list).
 
-
 #### Next
-
-
 
 10. The Ophidian Bank

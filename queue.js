@@ -1,5 +1,3 @@
-
-
 class _Node_ {
     constructor(value) {
         this.value = value;
@@ -53,18 +51,18 @@ class DoublyLinkedQueue {
 
         if (this.first === null) {
             this.first = node;
-            this.prev = null
+            this.prev = null;
         }
 
         if (this.last) {
             this.last.next = node;
         }
 
-        let oldLastNode = this.last
+        let oldLastNode = this.last;
         this.last = node;
         this.last.prev = oldLastNode;
     }
-    
+
     _dequeue() {
         if (this.first === null) {
             return;
@@ -80,28 +78,25 @@ class DoublyLinkedQueue {
     }
 }
 
-
-function _peek(stack){
+function _peek(stack) {
     return stack.first;
 }
 
-function _isEmpty(stack){
-    if(stack.first === null){
-        return 'empty'
-    }
-    else return 'not empty'
+function _isEmpty(stack) {
+    if (stack.first === null) {
+        return 'empty';
+    } else return 'not empty';
 }
 
-function _display(stack){
-
+function _display(stack) {
     let stackArr = [];
-    let node = stack.first
+    let node = stack.first;
 
-    while(node !== null){
-        if(node !== null){
-            stackArr.push(node.value)
+    while (node !== null) {
+        if (node !== null) {
+            stackArr.push(node.value);
         }
-        node = node.next
+        node = node.next;
     }
     return stackArr;
 }
@@ -109,11 +104,11 @@ function _display(stack){
 function newQueue() {
     const starTrekQ = new Queue();
 
-    starTrekQ.enqueue('Kirk')
-    starTrekQ.enqueue('Spock')
-    starTrekQ.enqueue('Uhura')
-    starTrekQ.enqueue('Sulu')
-    starTrekQ.enqueue('Checkov')
+    starTrekQ.enqueue('Kirk');
+    starTrekQ.enqueue('Spock');
+    starTrekQ.enqueue('Uhura');
+    starTrekQ.enqueue('Sulu');
+    starTrekQ.enqueue('Checkov');
 
     let _peekTop = _peek(starTrekQ);
     let _checkEmpty = _isEmpty(starTrekQ);
@@ -124,18 +119,16 @@ function newQueue() {
 
     return starTrekQ;
 }
-
 //console.log(newQueue());
-
 
 function newDoublyQueue() {
     const starTrekDoublyQ = new DoublyLinkedQueue();
 
-    starTrekDoublyQ._enqueue('Kirk')
-    starTrekDoublyQ._enqueue('Spock')
-    starTrekDoublyQ._enqueue('Uhura')
-    starTrekDoublyQ._enqueue('Sulu')
-    starTrekDoublyQ._enqueue('Checkov')
+    starTrekDoublyQ._enqueue('Kirk');
+    starTrekDoublyQ._enqueue('Spock');
+    starTrekDoublyQ._enqueue('Uhura');
+    starTrekDoublyQ._enqueue('Sulu');
+    starTrekDoublyQ._enqueue('Checkov');
 
     let _peek_Top = _peek(starTrekDoublyQ);
     let _checkEmpty = _isEmpty(starTrekDoublyQ);
@@ -146,9 +139,7 @@ function newDoublyQueue() {
     //return _displayStack
     return starTrekDoublyQ;
 }
-
 //console.log(newDoublyQueue());
-
 
 //8. Queue implementation using two stacks
 class _Stack {
@@ -173,70 +164,67 @@ class _Stack {
     }
 }
 
-function returnItemLikeQueue(stack){
-    const helperStack = new _Stack()
+function returnItemLikeQueue(stack) {
+    const helperStack = new _Stack();
 
     //until we get to first item in, move everything to a different stack
-    while(stack.top.next !== null){
-        let eachItem = stack.pop()
-        helperStack.push(eachItem)
+    while (stack.top.next !== null) {
+        let eachItem = stack.pop();
+        helperStack.push(eachItem);
     }
 
-    //then take the first item off, and return 
-    let firstIn = stack.pop()
+    //then take the first item off, and return
+    let firstIn = stack.pop();
 
     //then put everything back in original order, so when more items are added the order stays FIFO
-    while(helperStack.top !== null) {
-        let eachReturningItem = helperStack.pop()
-        stack.push(eachReturningItem)
+    while (helperStack.top !== null) {
+        let eachReturningItem = helperStack.pop();
+        stack.push(eachReturningItem);
     }
 
     //return FIFO
-    return firstIn
+    return firstIn;
 }
 
 function queueUsingStacks() {
-    const myStack1 = new _Stack()
+    const myStack1 = new _Stack();
 
     myStack1.push('1 Kirk');
     myStack1.push('2 Spock');
     myStack1.push('3 McCoy');
     myStack1.push('4 Scotty');
 
-    let firstItem = returnItemLikeQueue(myStack1)
+    let firstItem = returnItemLikeQueue(myStack1);
     return firstItem;
 }
-
 //console.log(queueUsingStacks())
-
 
 //9. Square dance pairing
 function pairOff(females, males) {
-    if(females.first !== null && males.first !== null){
-        let f_pair = females.dequeue()
-        let m_pair = males.dequeue()
-        let pair = [f_pair, m_pair]
-        return pair
-    } else return 'waiting on another to pair with'
+    if (females.first !== null && males.first !== null) {
+        let f_pair = females.dequeue();
+        let m_pair = males.dequeue();
+        let pair = [f_pair, m_pair];
+        return pair;
+    } else return 'waiting on another to pair with';
 }
 
-function squareDancingPairs(){
-    const m_queue = new Queue()
-    const f_queue = new Queue()
+function squareDancingPairs() {
+    const m_queue = new Queue();
+    const f_queue = new Queue();
 
-    f_queue.enqueue('Jane')
-    m_queue.enqueue('Frank')
-    m_queue.enqueue('John')
-    m_queue.enqueue('Sherlock')
-    f_queue.enqueue('Madonna')
-    m_queue.enqueue('David')
-    m_queue.enqueue('Christopher')
-    f_queue.enqueue('Beyonce')
+    f_queue.enqueue('Jane');
+    m_queue.enqueue('Frank');
+    m_queue.enqueue('John');
+    m_queue.enqueue('Sherlock');
+    f_queue.enqueue('Madonna');
+    m_queue.enqueue('David');
+    m_queue.enqueue('Christopher');
+    f_queue.enqueue('Beyonce');
 
-    
-    let pairs = pairOff(f_queue, m_queue)
-    let otherPair = pairOff(f_queue, m_queue)
-    return pairs
+    let pairs = pairOff(f_queue, m_queue);
+    let otherPair = pairOff(f_queue, m_queue);
+    return pairs;
 }
 
-console.log(squareDancingPairs())
+console.log(squareDancingPairs());

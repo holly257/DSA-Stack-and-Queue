@@ -226,5 +226,48 @@ function squareDancingPairs() {
     let otherPair = pairOff(f_queue, m_queue);
     return pairs;
 }
+//console.log(squareDancingPairs());
 
-console.log(squareDancingPairs());
+// 10. The Ophidian Bank
+function getRandomArbitrary(min, max) {
+    let chance = Math.floor(Math.random() * (max - min) + min);
+
+    if (chance === 4) {
+        return false;
+    } else return true;
+}
+
+function seeTeller(bQueue) {
+    if (bQueue.first !== null) {
+        let nextCust = bQueue.dequeue();
+        let goodPapers = getRandomArbitrary(1, 5);
+        if (goodPapers === true) {
+            return nextCust;
+        } else bQueue.enqueue(nextCust);
+    }
+    return bQueue;
+}
+
+function ophidianBank() {
+    const bankQueue = new Queue();
+
+    bankQueue.enqueue('cust 1');
+    bankQueue.enqueue('cust 2');
+    bankQueue.enqueue('cust 3');
+    bankQueue.enqueue('cust 4');
+    bankQueue.enqueue('cust 5');
+    bankQueue.enqueue('cust 6');
+    bankQueue.enqueue('cust 7');
+    bankQueue.enqueue('cust 8');
+    bankQueue.enqueue('cust 9');
+
+    let cust = seeTeller(bankQueue);
+    let cust1 = seeTeller(bankQueue);
+    let cust2 = seeTeller(bankQueue);
+    let cust3 = seeTeller(bankQueue);
+    let cust4 = seeTeller(bankQueue);
+
+    return bankQueue;
+}
+
+console.log(ophidianBank());

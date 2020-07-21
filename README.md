@@ -39,7 +39,13 @@
 8. Square dance pairing
     - As people come to the dance floor, they should be paired off as quickly as possible: man with woman, man with woman, all the way down the line. If several men arrive in a row, they should be paired in the order they came, and likewise if several women do.
     - Maintain a queue of "spares" (men for whom you have no women yet, or vice versa), and pair them as appropriate.
-
+9. Square dance pairing
+    - As people come to the dance floor, they should be paired off as quickly as possible: man with woman, man with woman, all the way down the line. 
+    - If several men arrive in a row, they should be paired in the order they came, and likewise if several women do. Maintain a queue of "spares" (men for whom you have no women yet, or vice versa), and pair them as appropriate.
+10. The Ophidian Bank
+    - At the Ophidian Bank, a single teller serves a long queue of people. 
+    - New customers join the end of the queue, and the teller will serve a customer only if they have all of the appropriate paperwork. 
+    - Write a representation of this queue; 25% of the time (random), a customer's paperwork isn't quite right, and it's back to the end of the queue. Show what a few minutes of the bank's lobby would look like.
 #### not finished - need to revisit
 
 4. Matching parentheses in an expression
@@ -48,7 +54,3 @@
 
 5. Sort Stack
     - Write a program to sort a stack such that the smallest items are on the top (in ascending order). You can use an additional stack, but you may not use any other data structure (such as an array, or linked list).
-
-#### Next
-
-10. The Ophidian Bank

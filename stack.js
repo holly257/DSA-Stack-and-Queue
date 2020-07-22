@@ -22,7 +22,7 @@ class Stack {
 
     pop() {
         const node = this.top;
-        this.top = node.next;
+        this.top = node.next || null;
         return node.data;
     }
 }
@@ -210,12 +210,55 @@ function countQuotes(char, newStack) {
 //console.log(findParenMatch(`{}()""()(){}`))
 
 //5. Sort stack
-function smallestFirst(stack) {
-    return stack;
+function divideConquer(stack) {
+        let pivot = stack.pop();
+        let smaller = new Stack();
+        let larger = new Stack();
+        
+        while(isEmpty(stack) === false){
+            let item = stack.pop()
+            if(item < pivot){
+                smaller.push(item)
+            } else {
+                larger.push(item)
+            }
+        }
+                   
+        larger.push(pivot)
+        while(!isEmpty(smaller)){
+            larger.push(smaller.pop())
+        }
 
-    //use .pop to take off items
+       return larger;
 }
-//console.log(smallestFirst(newStack()))
+
+
+function sortStack(stack) {
+    let final  
+    if(isEmpty(stack)){
+        return stack
+    } else{
+            final = divideConquer(stack)
+        }
+    
+    return final;
+}
+
+function numStack() {
+    const nums = new Stack();
+
+    nums.push(3);
+    nums.push(6);
+    nums.push(1);
+    nums.push(9);
+    nums.push(2);
+    nums.push(11);
+    nums.push(5);
+
+    let sorted = sortStack(nums)
+    return sorted;
+}
+console.log(numStack())
 
 function newStack() {
     const starTrek = new Stack();

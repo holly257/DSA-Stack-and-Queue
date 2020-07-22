@@ -88,6 +88,7 @@ function is_palindrome(s) {
 function findParenMatch(string) {
     const newStack = new Stack();
     let error = '';
+    
     for (i = 0; i < string.length; i++) {
         if (
             string.charAt(i) === '(' ||
@@ -98,32 +99,6 @@ function findParenMatch(string) {
         ) {
             newStack.push(i);
         } else {
-            //     //console.log(newStack)
-            //     if (isEmpty(newStack)) {
-            //         error = 'You are missing ' + 'thing' + ' at ' + i;
-            //         return error;
-            //     }
-            //     let required = [')', ']', '}']
-            //     let newItem = string[newStack.pop()]
-            //     console.log(string.charAt(i), newItem)
-            //             if (!required.includes(string.charAt(i))) {
-            //                 error =  'You are missing ' + newItem + ' at ' + i;
-            //                 return error;
-            //             }
-
-            // //return error
-            if (string.charAt(i) === '"') {
-                if (isEmpty(newStack)) {
-                    error = 'You are missing " at ' + i;
-                    return error;
-                } else {
-                    let item = string[newStack.pop()];
-                    if (item !== '"') {
-                        error = 'You are missing " at ' + i;
-                        return error;
-                    }
-                }
-            }
             if (string.charAt(i) === ')') {
                 if (isEmpty(newStack)) {
                     error = 'You are missing ( at ' + i;
@@ -168,46 +143,21 @@ function findParenMatch(string) {
     } else if (!isEmpty(newStack)) {
         let index = newStack.pop();
         let char = string.charAt(index);
+        let required = ['(', '[', '{'];
 
-        if (char === '"' || char === `'`) {
-            countQuotes(char, newStack);
-            // let countSingle = 0
-            // let countDouble = 0
-
-            // let eachQuote = newStack.pop()
-            // if(eachQuote === '"') {
-            //     countDouble = countDouble + 1
-            // } else countSingle = countSingle + 1
-            // console.log(countSingle, countDouble)
-        } else {
-            let required = ['(', '[', '{'];
-            required.forEach(item => {
-                if (char === item) {
-                    error = 'You are missing ' + item + ' at ' + (index + 1);
-                    return error;
-                }
-            });
-            return error;
-        }
+        required.forEach(item => {
+            if (char === item) {
+                error = 'You are missing ' + item + ' at ' + (index + 1);
+                return error;
+            }
+        });
+        return error;
     } else {
         return error;
     }
 }
-
-function countQuotes(char, newStack) {
-    let countSingle = 0;
-    let countDouble = 0;
-
-    let eachQuote = newStack.pop();
-    if (eachQuote === '"') {
-        countDouble = countDouble + 1;
-    } else if (eachQuote === `'`) {
-        countSingle = countSingle + 1;
-    } else return countSingle, countDouble, newStack;
-    console.log(countSingle, countDouble);
-}
 //counting quotes not working
-//console.log(findParenMatch(`{}()""()(){}`))
+//console.log(findParenMatch(`{}()[]`))
 
 //5. Sort stack
 function divideConquer(stack) {
@@ -258,9 +208,9 @@ function numStack() {
     let sorted = sortStack(nums)
     return sorted;
 }
-console.log(numStack())
+//console.log(numStack())
 
-function newStack() {
+function _newStack() {
     const starTrek = new Stack();
 
     starTrek.push('Kirk');
@@ -278,4 +228,4 @@ function newStack() {
 
     return starTrek;
 }
-//console.log(newStack())
+//console.log(_newStack())

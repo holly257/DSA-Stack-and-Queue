@@ -21,8 +21,9 @@
     - For version 1, the parentheses you need to consider are ( and ). Finding a close parenthesis without an open parenthesis is an error (report the location of the close); reaching the end of the string while still "holding" an open parenthesis is also an error (report the location of the open).
     - Extension exercise: Recognize 3 pairs of brackets: (), [], and {}. These must be correctly nested; "([)]" is incorrect, and should report an error at the ), stating that you were expecting a ] but found a ). If this is starting to look and sound very familiar, congratulations - you're beginning to write a simple language parser!
     - Extension extension exercise: Also recognize 2 types of quote character: "" and ''. Inside quotes, brackets aren't counted at all - in fact, nothing is counted until you reach the corresponding close quote.
-
-5. Create a queue using a singly linked list
+5. Sort Stack
+    - Write a program to sort a stack such that the smallest items are on the top (in ascending order). You can use an additional stack, but you may not use any other data structure (such as an array, or linked list).
+6. Create a queue using a singly linked list
     - Walk through the Queue class in the curriculum and understand it well. Then write a Queue class
     - with its core functions (enqueue(), dequeue()) from scratch.
     - Create a queue called starTrekQ and add Kirk, Spock, Uhura, Sulu, and Checkov to the queue.
@@ -31,24 +32,17 @@
     - Implement a isEmpty() function outside the Queue class that allows you to check if the queue is empty or not
     - Implement a display() function outside of the Queue class that lets you display what's in the queue.
     - Remove Spock from the queue and display the resulting queue.
-6. Create a queue class using Doubly linked List
+7. Create a queue class using Doubly linked List
     - Use the items listed in #6 and enqueue them to your queue.
     - Check to see who is first one on the Queue?
-7. Queue implementation using a stack
+8. Queue implementation using a stack
     - There are many ways to implement a queue. You have learned using singly linked list, and doubly linked list.
     - Keeping the concept of a queue in mind, implement a queue using 2 stacks and no other data structure. (You are not allowed to use a doubly linked list or array.
     - Use your stack implementation with a linked list from above to solve this problem.)
-8. Square dance pairing
+9. Square dance pairing
     - As people come to the dance floor, they should be paired off as quickly as possible: man with woman, man with woman, all the way down the line. If several men arrive in a row, they should be paired in the order they came, and likewise if several women do.
     - Maintain a queue of "spares" (men for whom you have no women yet, or vice versa), and pair them as appropriate.
-9. Square dance pairing
-    - As people come to the dance floor, they should be paired off as quickly as possible: man with woman, man with woman, all the way down the line. 
-    - If several men arrive in a row, they should be paired in the order they came, and likewise if several women do. Maintain a queue of "spares" (men for whom you have no women yet, or vice versa), and pair them as appropriate.
 10. The Ophidian Bank
     - At the Ophidian Bank, a single teller serves a long queue of people. 
     - New customers join the end of the queue, and the teller will serve a customer only if they have all of the appropriate paperwork. 
     - Write a representation of this queue; 25% of the time (random), a customer's paperwork isn't quite right, and it's back to the end of the queue. Show what a few minutes of the bank's lobby would look like.
-#### not finished
-   
-5. Sort Stack
-    - Write a program to sort a stack such that the smallest items are on the top (in ascending order). You can use an additional stack, but you may not use any other data structure (such as an array, or linked list).

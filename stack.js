@@ -173,10 +173,16 @@ function divideConquer(stack) {
                 larger.push(item)
             }
         }
-                   
+        
+        smaller = sortStack(smaller)
+        larger = sortStack(larger)
+
         larger.push(pivot)
         while(!isEmpty(smaller)){
-            larger.push(smaller.pop())
+            stack.push(smaller.pop())
+        }
+        while(!isEmpty(stack)){
+            larger.push(stack.pop())
         }
 
        return larger;
@@ -208,7 +214,7 @@ function numStack() {
     let sorted = sortStack(nums)
     return sorted;
 }
-//console.log(numStack())
+console.log(numStack())
 
 function _newStack() {
     const starTrek = new Stack();

@@ -20,6 +20,8 @@
     - stack can be used to ensure that an arithmetic expression has balanced parentheses. Write a function that takes an arithmetic expression as an argument and returns true or false based on matching parenthesis. As a bonus provide a meaningful error message to the user as to what's missing. For example, you are missing a ( or missing a ")".
     - For version 1, the parentheses you need to consider are ( and ). Finding a close parenthesis without an open parenthesis is an error (report the location of the close); reaching the end of the string while still "holding" an open parenthesis is also an error (report the location of the open).
     - Extension exercise: Recognize 3 pairs of brackets: (), [], and {}. These must be correctly nested; "([)]" is incorrect, and should report an error at the ), stating that you were expecting a ] but found a ). If this is starting to look and sound very familiar, congratulations - you're beginning to write a simple language parser!
+    - Extension extension exercise: Also recognize 2 types of quote character: "" and ''. Inside quotes, brackets aren't counted at all - in fact, nothing is counted until you reach the corresponding close quote.
+
 5. Create a queue using a singly linked list
     - Walk through the Queue class in the curriculum and understand it well. Then write a Queue class
     - with its core functions (enqueue(), dequeue()) from scratch.
@@ -46,11 +48,7 @@
     - At the Ophidian Bank, a single teller serves a long queue of people. 
     - New customers join the end of the queue, and the teller will serve a customer only if they have all of the appropriate paperwork. 
     - Write a representation of this queue; 25% of the time (random), a customer's paperwork isn't quite right, and it's back to the end of the queue. Show what a few minutes of the bank's lobby would look like.
-#### not finished - need to revisit
-
-4. Matching parentheses in an expression
-
-    - Extension extension exercise: Also recognize 2 types of quote character: "" and ''. Inside quotes, brackets aren't counted at all - in fact, nothing is counted until you reach the corresponding close quote.
-
+#### not finished
+   
 5. Sort Stack
     - Write a program to sort a stack such that the smallest items are on the top (in ascending order). You can use an additional stack, but you may not use any other data structure (such as an array, or linked list).
